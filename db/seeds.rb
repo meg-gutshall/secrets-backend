@@ -3,9 +3,9 @@
 
 Secret.destroy_all
 
-Secret.create!(text: "I wear my socks 3 times before washing them.")
-Secret.create!(text: "I cheated on my wife, but it was only one time.")
-Secret.create!(text: "I never wear underwear.")
-Secret.create!(text: "I love the smell of my own farts.")
+Secret.create!(text: "I wear my socks 3 times before washing them.", tag: "dirty")
+Secret.create!(text: "I cheated on my wife, but it was only one time.", tag: "deep")
+Secret.create!(text: "I never wear underwear.", tag: "juicy")
+Secret.create!(text: "I love the smell of my own farts.", tag: "silly")
 
 puts "Created #{Secret.all.count} secrets"

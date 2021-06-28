@@ -46,6 +46,6 @@ class Api::SecretsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def secret_params
-      params.require(:secret).permit(:text)
+      params.require(:secret).permit(:text, :tag)
     end
 end
