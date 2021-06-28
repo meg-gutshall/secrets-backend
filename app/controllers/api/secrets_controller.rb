@@ -5,12 +5,12 @@ class Api::SecretsController < ApplicationController
   def index
     @secrets = Secret.all
 
-    render json: @secrets
+    render json: SecretSerializer.new(@secrets)
   end
 
   # GET /secrets/1
   def show
-    render json: @secret
+    render json: SecretSerializer.new(@secrets)
   end
 
   # POST /secrets
@@ -18,7 +18,7 @@ class Api::SecretsController < ApplicationController
     @secret = Secret.new(secret_params)
 
     if @secret.save
-      render json: @secret, status: :created, location: @secret
+      render json: SecretSerializer.new(@secrets), status: :created, location: @secret
     else
       render json: @secret.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Api::SecretsController < ApplicationController
   # PATCH/PUT /secrets/1
   def update
     if @secret.update(secret_params)
-      render json: @secret
+      render json: SecretSerializer.new(@secrets)
     else
       render json: @secret.errors, status: :unprocessable_entity
     end
