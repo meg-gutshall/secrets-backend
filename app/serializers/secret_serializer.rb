@@ -1,4 +1,4 @@
 class SecretSerializer
   include JSONAPI::Serializer
-  attributes :id, :text, :tag
+  attributes :id, :content, :tag
 end
