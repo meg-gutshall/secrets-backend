@@ -8,8 +8,8 @@ require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_mailbox/engine"
-require "action_text/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
@@ -36,11 +36,16 @@ module SecretsBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Add Rails generators configurations
     config.generators do |g|
       g.test_framework = nil
       g.scss = nil
       g.assets = nil
       g.jbuilder = nil
     end
+
+    # Remove annoying ActiveStorage routes
+    config.active_storage.draw_routes = false
   end
 end
