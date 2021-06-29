@@ -20,7 +20,7 @@ class Api::SecretsController < ApplicationController
     if secret.save
       render json: SecretSerializer.new(secret), status: :created
     else
-      render json: secret.errors, status: :unprocessable_entity
+      render json: { error: secret.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class Api::SecretsController < ApplicationController
     if secret.update(secret_params)
       render json: SecretSerializer.new(secret)
     else
-      render json: secret.errors, status: :unprocessable_entity
+      render json: { error: secret.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
