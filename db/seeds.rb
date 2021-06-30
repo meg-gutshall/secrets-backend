@@ -7,5 +7,7 @@ Secret.create!(content: "I wear my socks 3 times before washing them.", tag: "di
 Secret.create!(content: "I cheated on my wife, but it was only one time.", tag: "deep")
 Secret.create!(content: "I never wear underwear.", tag: "juicy")
 Secret.create!(content: "I love the smell of my own farts.", tag: "silly")
+Secret.create!(content: "I blast the A/C in the car with the windows down.", tag: "silly")
+Secret.create!(content: "I still wet the bed. I'm 24.", tag: "dirty")
 
 puts "Created #{Secret.all.count} secrets"
