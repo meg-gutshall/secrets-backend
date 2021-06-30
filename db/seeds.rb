@@ -9,5 +9,6 @@ Secret.create!(content: "I never wear underwear.", tag: "juicy")
 Secret.create!(content: "I love the smell of my own farts.", tag: "silly")
 Secret.create!(content: "I blast the A/C in the car with the windows down.", tag: "silly")
 Secret.create!(content: "I still wet the bed. I'm 24.", tag: "dirty")
+Secret.create!(content: "I fucked my French professor so he'd give me an A.", tag: "juicy")
 
 puts "Created #{Secret.all.count} secrets"
