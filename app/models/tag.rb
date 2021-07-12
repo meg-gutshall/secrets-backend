@@ -1,4 +1,3 @@
 class Tag < ApplicationRecord
-  has_many :secret_tags
-  has_many :secrets, through: :secret_tags
+  has_and_belongs_to_many :secrets
 end
