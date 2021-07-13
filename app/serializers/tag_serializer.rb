@@ -1,4 +1,4 @@
 class TagSerializer
   include JSONAPI::Serializer
-  attributes :id, :name, :secrets
+  attributes :id, :name
 end

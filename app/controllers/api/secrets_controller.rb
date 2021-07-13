@@ -5,7 +5,9 @@ class Api::SecretsController < ApplicationController
   def index
     secrets = Secret.all
 
-    render json: SecretSerializer.new(secrets)
+    options = {}
+    options[:include] = [:tags]
+    render json: SecretSerializer.new(secrets, options)
   end
 
   # GET /secrets/1
@@ -18,6 +20,8 @@ class Api::SecretsController < ApplicationController
     secret = Secret.new(secret_params)
 
     if secret.save
+      options = {}
+      options[:include] = [:tags]
       render json: SecretSerializer.new(secret), status: :created
     else
       render json: { error: secret.errors.full_messages }, status: :unprocessable_entity
@@ -27,6 +31,8 @@ class Api::SecretsController < ApplicationController
   # PATCH/PUT /secrets/1
   def update
     if secret.update(secret_params)
+      options = {}
+      options[:include] = [:tags]
       render json: SecretSerializer.new(secret)
     else
       render json: { error: secret.errors.full_messages }, status: :unprocessable_entity
